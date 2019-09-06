@@ -4,7 +4,6 @@
 <p align="center">A simple tool for  
 downloading courses from - codecourse (premium account is required to use this tool)
 </P>
-[git](https://git-scm.com)
 
 ## Requirements
 - [composer](https://getcomposer.org/) 
@@ -24,4 +23,4 @@ downloading courses from - codecourse (premium account is required to use this t
 ```
 visit [codecourse](https://codecourse.com) to more info
 
-<p align="center"><img src="https://repository-images.githubusercontent.com/205729050/144a5800-cd13-11e9-88db-695a134cd09f" width="500"></p>
+<p align="center"><img src="https://repository-images.githubusercontent.com/206791420/546e5980-d0ca-11e9-9e2a-9b920b7a8304" width="500"></p>

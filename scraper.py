@@ -49,12 +49,14 @@ def scrape():
     print('************************************************************')
     print("*\tDONE: " + shellfilename + " and " + coursefilename + "files generated")
     print('************************************************************')
-    os.system("courses.sh")
+    print('>>>downloading...')
+    os.system(shellfilename)
 
 
 while True:
     scrape()
     runAgain = input('Enter (yes|YES) to continue or press Enter or cmd to exit: ')
+
     if runAgain.lower() == "yes":
         print('*********************   New Run      ***********************')
     else:
