@@ -10,16 +10,15 @@ print('************************************************************')
 
 def scrape():
     # set files
-    shellfilename = "coursedownloader.sh"
-    coursefilename = "courselist.txt"
+    shellfilename = "allcoursesdownloader.sh"
+    coursefilename = "allcourseslist.txt"
     c = open(coursefilename, "w+", newline="")
     f = open(shellfilename, "w+", newline="")
-    f.write("#!/bin/bash \r\n")
-
+    f.write("#!/bin/bash \r\n")    
     # initialize varibles
     start = input('\tEnter START page number: ')
     end = input('\tEnter END page number: ')
-
+    print('>>>scraping...')
     # loop all pages
     for page in range(int(start), int(end) + 1, 1):
         response = requests.get('https://codecourse.com/library/all?free=false&page=' + str(page))
