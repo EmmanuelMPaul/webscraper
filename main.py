@@ -6,22 +6,27 @@ from bs4 import BeautifulSoup
 print('************************************************************')
 print('*******************  Welcome to EC254 scraper  *************')
 print('************************************************************')
+
+
 def scrape():
-    # loop all pages
+    # set files
     shellfilename = "courses.sh"
     coursefilename = "courses.txt"
     c = open(coursefilename, "w+", newline="")
     f = open(shellfilename, "w+", newline="")
     f.write("#!/bin/bash \r\n")
-    startPage = input('\tEnter START page number: ')
-    endPage = input('\tEnter END page number: ')
+
+    # initialize varibles
+    start = input('\tEnter START page number: ')
+    end = input('\tEnter END page number: ')
+
     # loop all pages
-    index = 1;
-    for page in range(int(startPage), int(endPage) + 1, 1):
+    for page in range(int(start), int(end) + 1, 1):
         response = requests.get('https://codecourse.com/library/all?free=false&page=' + str(page))
         soup = BeautifulSoup(response.text, 'html.parser')
         courses = soup.find_all('a', href=True)
-        # course
+
+        # loop courses in a page
         ignore = ''
         for course in courses:
             link = course['href']
@@ -40,11 +45,14 @@ def scrape():
     f.write("read terminate")
     f.close()
     c.close()
+
     print('************************************************************')
     print("*\tDONE: " + shellfilename + " and " + coursefilename + "files generated")
     print('************************************************************')
     os.system("courses.sh")
-while 1:
+
+
+while True:
     scrape()
     runAgain = input('Enter (yes|YES) to continue or press Enter or cmd to exit: ')
     if runAgain.lower() == "yes":
