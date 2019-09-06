@@ -1,3 +1,4 @@
+import os
 import re
 import requests
 from bs4 import BeautifulSoup
@@ -6,12 +7,11 @@ print('************************************************************')
 print('*******************  Welcome to EC254 scraper  *************')
 print('************************************************************')
 def scrape():
-
     # loop all pages
-    shellFilename = "courses.sh"
-    courseFilename = "courses.txt"
-    c = open(courseFilename, "w+", newline="")
-    f = open(shellFilename, "w+", newline="")
+    shellfilename = "courses.sh"
+    coursefilename = "courses.txt"
+    c = open(coursefilename, "w+", newline="")
+    f = open(shellfilename, "w+", newline="")
     f.write("#!/bin/bash \r\n")
     startPage = input('\tEnter START page number: ')
     endPage = input('\tEnter END page number: ')
@@ -38,11 +38,12 @@ def scrape():
 
     f.write("echo -n press Enter or cmd to exit \r\n")
     f.write("read terminate")
+    f.close()
+    c.close()
     print('************************************************************')
-    print("*\tDONE: " + shellFilename + " and " + courseFilename + "files generated")
+    print("*\tDONE: " + shellfilename + " and " + coursefilename + "files generated")
     print('************************************************************')
-
-
+    os.system("courses.sh")
 while 1:
     scrape()
     runAgain = input('Enter (yes|YES) to continue or press Enter or cmd to exit: ')

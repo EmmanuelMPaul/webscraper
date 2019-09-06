@@ -8,13 +8,3 @@ custom-laravel-collections
 super-fast-data-nesting
 vue.js-firebase-authenticaton
 inline-vue-validation-in-under-10-minutes
-create-a-laravel-scout-elasticsearch-driver
-grouping-laravel-notifications
-testing-vue
-recreate-our-auto-hiding-sliding-navigation
-better-laravel-database-notifications
-dynamic-vue-components
-infinite-scrolling-search-with-vue-and-algolia
-magically-invoking-laravel-controller-methods
-using-env-files-with-nuxt
-new-in-laravel-5-7
