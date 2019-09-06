@@ -1,7 +1,7 @@
 ## About
 
-<p align="center">Learning webscraping using BeautifulSoup library</p>
-<p align="center">A simple tool for  
+<p align="left">Learning webscraping using BeautifulSoup library</p>
+<p align="left">A simple tool for  
 downloading courses from - codecourse (premium account is required to use this tool)
 </P>
 
