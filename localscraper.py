@@ -1,7 +1,9 @@
 import os
+
 print('************************************************************')
 print('*****************  Welcome to EC254 local scraper  ***********')
 print('************************************************************')
+
 
 def scrape():
     check = True
@@ -18,10 +20,13 @@ def scrape():
 
         # prepare shell file
         for tag in tags:
-            cmd = "php codecourse download:course " + tag
-            f.write(cmd)
-            f.write("echo\r\necho -n '************************************************************'\r\n")
-            f.write("echo\r\necho 'processing.... next course'\r\nsleep 5s\r\necho\r\n")
+            if os.path.isdir(tag):
+                print(tag + ' course already exists!')
+            else:
+                cmd = "php codecourse download:course " + tag
+                f.write(cmd)
+                f.write("echo\r\necho -n '************************************************************'\r\n")
+                f.write("echo\r\necho 'processing.... next course'\r\nsleep 5s\r\necho\r\n")
 
         f.write("echo -n press Enter or cmd to exit \r\n")
         f.write("read terminate")
@@ -37,6 +42,7 @@ def scrape():
         print('************************************************************')
         print('>>>downloading...')
         os.system(localshellfile)
+
 
 while True:
     scrape()

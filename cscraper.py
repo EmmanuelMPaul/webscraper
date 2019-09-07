@@ -14,14 +14,14 @@ def scrape():
     coursefilename = "courselist.txt"
     c = open(coursefilename, "w+", newline="")
     f = open(shellfilename, "w+", newline="")
-    f.write("#!/bin/bash \r\n")    
+    f.write("#!/bin/bash \r\n")
     # initialize varibles
     start = input('\tEnter START page number: ')
     end = input('\tEnter END page number: ')
     print('>>>scraping...')
     # loop all pages
     for page in range(int(start), int(end) + 1, 1):
-        response = requests.get('https://codecourse.com/library/all?free=false&page='+str(page)+'&type=course')
+        response = requests.get('https://codecourse.com/library/all?free=false&page=' + str(page) + '&type=course')
         soup = BeautifulSoup(response.text, 'html.parser')
         courses = soup.find_all('a', href=True)
 
@@ -33,11 +33,14 @@ def scrape():
             if re.search(r"^/courses/", link):
                 tag = link[9:len(link)]
                 if ignore != tag:
-                    cmd = "php codecourse download:course " + tag + "\r\n"
-                    f.write(cmd)
-                    c.write(tag + "\r\n")
-                    f.write("echo\r\necho -n '************************************************************'\r\n")
-                    f.write("echo\r\necho 'processing.... next course'\r\nsleep 5s\r\necho\r\n")
+                    if os.path.isdir(tag):
+                        print(tag + ' course already exists!')
+                    else:
+                        cmd = "php codecourse download:course " + tag + "\r\n"
+                        f.write(cmd)
+                        c.write(tag + "\r\n")
+                        f.write("echo\r\necho -n '************************************************************'\r\n")
+                        f.write("echo\r\necho 'processing.... next course'\r\nsleep 5s\r\necho\r\n")
                 ignore = tag
 
     f.write("echo -n press Enter or cmd to exit \r\n")
