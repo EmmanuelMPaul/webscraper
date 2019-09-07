@@ -22,6 +22,7 @@ downloading courses from - codecourse (premium account is required to use this t
     $  python allscraper.py             to download all types courses + snippet
     $  python cscraper.py               to download courses only
     $  python sscraper.py               to download snippets only
+    $  python localscraper.py           to download courses from a file source
 ```
 visit [codecourse](https://codecourse.com) to view the courses
 

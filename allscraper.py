@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 print('************************************************************')
-print('*******************  Welcome to EC254 scraper  *************')
+print('*****************  Welcome to EC254 All scraper  ***********')
 print('************************************************************')
 
 
@@ -46,7 +46,7 @@ def scrape():
     c.close()
 
     print('************************************************************')
-    print("*\tDONE: " + shellfilename + " and " + coursefilename + "files generated")
+    print("* DONE: " + shellfilename + " and " + coursefilename + " files generated")
     print('************************************************************')
     print('>>>downloading...')
     os.system(shellfilename)

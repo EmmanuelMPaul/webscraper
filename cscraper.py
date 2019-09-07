@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 print('************************************************************')
-print('*******************  Welcome to EC254 scraper  *************')
+print('*******************  Welcome to EC254 All scraper  *********')
 print('************************************************************')
 
 
